@@ -12,6 +12,16 @@
       <ul class='nav nav-tabs'>
         <li><%= link_to "Bloccit", root_path %></li>
         <li><%= link_to "About", about_path %></li>
+
+        <div class="pull-right user-info">
+          <% if current_user %>
+            Hello <%= current_user.email %>! <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+          <% else %>
+            <%= link_to "Sign In", new_user_session_path %> or 
+            <%= link_to "Sign Up", new_user_registration_path %>
+          <% end %>
+        </div>
+
       </ul>
 
       <% if flash[:notice] %>
@@ -30,7 +40,7 @@
           <%= flash[:alert] %>
         </div>
       <% end %>
-      
+
       <%= yield %>
 
     </div>
