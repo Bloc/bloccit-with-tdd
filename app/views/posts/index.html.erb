@@ -1,4 +1,9 @@
 <h1>All Posts</h1>
+
+<% if policy(Post.new).create? %>
+  <%= link_to "New Post", new_post_path, class: 'btn btn-success' %>
+<% end %>
+
 <% @posts.each do |post| %>
   <div class="media">
     <div class="media-body">
