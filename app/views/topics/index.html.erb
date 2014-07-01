@@ -1,0 +1,23 @@
+<h1>Topics</h1>
+
+<div class="row">
+  <div class="col-md-8">
+    <% @topics.each do |topic| %>
+      <div class="media">
+        <div class="media-body">
+          <h4 class="media-heading">
+            <%= link_to topic.name, topic %>
+          </h4>
+          <small>
+            <%= topic.description %>
+          </small>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-md-4">
+    <% if policy(Topic.new).create? %>
+      <%= link_to "New Topic", new_topic_path, class: 'btn btn-success' %>
+    <% end %>
+  </div>
+</div>
