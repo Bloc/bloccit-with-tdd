@@ -15,7 +15,9 @@
 
         <div class="pull-right user-info">
           <% if current_user %>
-            Hello <%= link_to (current_user.name || current_user.email), edit_user_registration_path %>! <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+            <%= image_tag(current_user.avatar.tiny.url) if current_user.avatar? %>
+            Hello <%= link_to (current_user.name || current_user.email), edit_user_registration_path %>! 
+            <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
           <% else %>
             <%= link_to "Sign In", new_user_session_path %> or 
             <%= link_to "Sign Up", new_user_registration_path %>
