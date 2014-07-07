@@ -1,0 +1,8 @@
+<% if current_user %>
+  <h4>Add a comment:</h4>
+  <%= form_for [topic, post, comment] do |f| %>
+    <%= f.label :body %>
+    <%= f.text_field :body %>
+    <%= f.submit %>
+  <% end %>
+<% end %>
