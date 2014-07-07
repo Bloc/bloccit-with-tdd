@@ -14,6 +14,7 @@
         </div>
       </div>
     <% end %>
+    <%= will_paginate @index %>
   </div>
   <div class="col-md-4">
     <% if policy(Topic.new).create? %>
