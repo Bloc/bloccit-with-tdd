@@ -18,6 +18,9 @@
       <%= link_to "Edit", edit_topic_post_path(@topic,@post), class: 'btn btn-success' %>
     <% end %>
   </div>
+  <% if policy(@post).destroy? %>
+    <%= link_to "Delete Post", [@topic, @post], method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this post?' } %>
+  <% end %>
 </div>
 
 </br>
@@ -26,6 +29,6 @@
   <h2>Comments</h2>
   <div class='col-md-12'>
     <%= render @comments %>
-    <%= render 'comments/form', topic: @topic, comment: @comment, post: @post %>
+    <%= render 'comments/form' %>
   </div>
 </div>

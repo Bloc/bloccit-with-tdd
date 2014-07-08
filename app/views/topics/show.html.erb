@@ -29,5 +29,8 @@
     <% if policy(Post.new).create? %>
       <%= link_to "New Post", new_topic_post_path(@topic), class: 'btn btn-success' %>
     <% end %>
+    <% if policy(@topic).destroy? %>
+      <%= link_to "Delete Topic", @topic, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this topic?' } %> 
+    <% end %>
   </div>
 </div>
