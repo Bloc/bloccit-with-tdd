@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>New comment to "<%= @post.title %>"</h1>
+    <small>
+      By: <%= @comment.user.name %>
+    </small>
+    <p>
+      <%= @comment.body %>
+    </p>
+    <p>
+      <%= link_to "View Comment on site", topic_post_url(@post.topic, @post, anchor: "comment-#{@comment.id}") %>
+    </p>
+  </body>
+</html>

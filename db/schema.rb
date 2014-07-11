@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140709220920) do
+ActiveRecord::Schema.define(version: 20140711011620) do
 
   create_table "comments", force: true do |t|
     t.text     "body"
@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(version: 20140709220920) do
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
+  create_table "favorites", force: true do |t|
+    t.integer  "post_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "favorites", ["post_id"], name: "index_favorites_on_post_id"
+  add_index "favorites", ["user_id"], name: "index_favorites_on_user_id"
 
   create_table "posts", force: true do |t|
     t.string   "title"
@@ -48,12 +58,12 @@ ActiveRecord::Schema.define(version: 20140709220920) do
 
   create_table "users", force: true do |t|
     t.string   "name"
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -66,6 +76,7 @@ ActiveRecord::Schema.define(version: 20140709220920) do
     t.datetime "updated_at"
     t.string   "role"
     t.string   "avatar"
+    t.boolean  "email_favorites",        default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

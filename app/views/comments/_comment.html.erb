@@ -1,4 +1,4 @@
-<div class="media">
+<div class="media" id="comment-<%= comment.id %>">
   <%= link_to '#', class: 'pull-left' do %>
     <%= image_tag(comment.user.avatar.small.url) if comment.user.avatar? %>
   <% end %>
