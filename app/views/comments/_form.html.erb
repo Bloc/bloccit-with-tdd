@@ -1,6 +1,6 @@
 <% if current_user %>
   <h4>Add a comment:</h4>
-  <%= form_for [@post, @post.comments.build] do |f| %>
+  <%= form_for [@post, @post.comments.build], remote: true do |f| %>
     <%= f.label :body %>
     <%= f.text_field :body %>
     <%= f.submit %>
