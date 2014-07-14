@@ -17,7 +17,7 @@ end
 
 group :test do
   gem 'rspec-rails'
-  gem 'capybara'
+  gem 'capybara', '~> 2.3.0'
 end
 
 # Use SCSS for stylesheets
