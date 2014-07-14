@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="col-md-8">
+    <h1>Popular Users</h1>
+    <p class="lead">Most active users</p>
+    <%= render partial: 'users/user', collection: @users %>
+    <%= will_paginate @users %>
+  </div>
+  <div class="col-md-4">
+  </div>
+</div>
